@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <script>
+        var string = "hello";//strig
+        var num = 12;//number
+        var value = true;//boolean
+        var a= null ;//null
+        var b = undefined;//undefines value
+
+        console.log(string)
+        console.log(num)
+        console.log(value)
+        console.log(a)
+        console.log(b)
+
+
+        if(true){
+            let letVar= "it cannot be redeclare but can be reassigned";
+             letVar="(reassign done) : blocked scope , cannot redeclare but reassign is allowed";
+             console.log(letVar)
+        }
+        if(true){
+            const constVar= "it cannot be redeclare but can be reassigned"
+            //constVar = "error"; this line will throw an error
+             console.log(constVar)
+        }
+        if(true){
+           var  globalVar=" Can be used outside the block , reassign and redeclare is allowed";
+           globalVar="(reassign done): Can be used outside the block , reassign and redeclare is also allowed";
+           console.log(globalVar)
+
+        }
+        var globalVar="(redeclare done) : Can be used outside the block , reassign and redeclare is allowed"
+
+
+        //conditions
+        var age = 17
+        if(age=18){
+            console.log("condition is true");
+        }
+        else{
+            console.log("condition is false")
+        }
+
+        //while condition
+        let number = 0;
+        let maxcount= 10;
+        while(number <= maxcount){
+            console.log(`The number is ${number}`)
+            number++;
+        }
+
+
+
+
+    </script>
+</body>
+</html>

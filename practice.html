@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function CalculateGrade (marks){
+            if (marks>= 90){
+                return "A";
+            }
+             else if (marks>= 70 && marks<=89){
+                return "B";
+            }
+             else if (marks>=50 && marks <=69){
+                return "C";
+            }
+            else {
+                return "F";
+            }
+        }
+
+        let marks = parseInt(prompt("Enter your marks:"));
+        if ( !isNaN(marks) && marks>=0 && marks<=100){
+            console.log("Your grade is:" + CalculateGrade(marks));
+        } else{
+            console.log("Invalid marks");
+        }
+    
+    </script>
+</body>
+</html>

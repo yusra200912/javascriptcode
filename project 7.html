@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            background-color: #f0f0f5;
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            height: 50px;
+            width: 200px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5a6268;
+        }
+        label {
+            font-size: 20px;
+            color: #333;
+        }
+        .container {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background-color: #ffffff;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            color: #6c757d;
+        }
+        ::placeholder {
+            color: #aaa;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #6c757d;
+        }
+    </style>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 10) + 1; // Generate random number once
+        let attempts = 0;
+
+        function Guess() {
+            let guess = parseInt(document.getElementById("num").value);
+
+            // Input validation
+            if (isNaN(guess)) {
+                alert("Please enter a valid number!");
+                return;
+            }
+
+            attempts++;
+
+            if (guess === randomNumber) {
+                alert(`Congratulations! You guessed it right in ${attempts} attempts.`);
+                resetGame();
+            } else if (guess < randomNumber) {
+                alert("Too Low. Try again.");
+            } else if (guess > randomNumber) {
+                alert("Too High. Try again.");
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 10) + 1; // Reset random number
+            attempts = 0; // Reset attempts
+            document.getElementById("num").value = ""; // Clear input field
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Guess Number Game</h2>
+        <label>Enter the number you guessed!</label><br><br>
+        <input type="number" id="num" placeholder="Enter the number"><br>
+        <button onclick="Guess()">Guess</button>
+    </div>
+</body>
+</html>

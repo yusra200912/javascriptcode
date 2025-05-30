@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        var p1= new Promise(function(res , rej){
+            return res("After school, Reach home first")
+        });
+        var p2 = p1.then((data) => {
+            console.log(data);
+            return new Promise ((res , rej)=>{
+                return res("freshen up and then eat lunch")
+            });
+        });
+        var p3=p2.then((data)=>{
+            console.log(data);
+            return new Promise((res , rej)=>{
+                return res ("Then take a nap")
+            })
+        })
+        var p4=p3.then((data)=>{
+            console.log(data);
+            return new Promise((res , rej)=>{
+                return res ("Wake up and study")
+            });
+        });
+        var p5=p4.then((data)=>{
+            console.log(data);
+            return new Promise((res , rej)=>{
+                return res (" play in the garden")
+            });
+        });
+        var p6=p5.then((data)=>{
+            console.log(data);
+            return new Promise((res , rej)=>{
+                return res ("its time for dinner , eat the dinner")
+            });
+        });
+        var p7=p6.then((data)=>{
+            console.log(data);
+            return new Promise((res , rej)=>{
+                return res ("Do your homework then sleep")
+            
+            });
+        });
+        var p8=p7.then((data)=>{
+            console.log(data);
+            });
+        
+       
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

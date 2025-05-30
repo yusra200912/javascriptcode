@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        const student= ["yusra" , "zoya" , "hafsa" ]
+        console.log(student [1] )
+
+        //sorting
+        student.sort((a,b) => a.localeCompare(b));
+        console.log(student);
+
+        //num
+        let numbers = [5 , 2 , 7 , 0 , 1 , 9 ]
+        numbers.sort((a,b)=> a-b);//sorting in assending order
+        console.log(numbers);
+
+        numbers.sort((a,b)=> b-a);//sorting in decending order
+        console.log(numbers)
+
+        let number  = [ 1 , 2 , 3 , 4 , 5 ];
+        let squareVal = number.map((num) => num * num);
+        console.log(squareVal);
+        
+        let x = 5 ;
+        let y =  10 ;
+        let expression = "x*y"; //convert this to  a expression
+        let result = eval(expression);
+        console.log(result);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

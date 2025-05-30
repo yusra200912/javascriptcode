@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="simple form">
+        <h1 style="text-align: center;">Registration Form</h1>
+        <br><br>
+        <label>Username:</label><br>
+        <input type="text" id="Username" placeholder="Enter your name"></input><br>
+        <label>Password:</label><br>
+        <input type="password" id="Password" placeholder="Enter your Password"></input><br>
+        <label>Email:</label><br>
+        <input type="email" id="Email" placeholder="Enter your Email"></input><br><br>
+        <button onclick="validform(event)">Submit</button>
+        <h5 id="errormessage"></h5>
+    </form>
+    <script>
+        function validform(e) {
+            e.preventDefault()
+            const username = document.getElementById("Username").value;
+            const password = document.getElementById("Password").value;
+            const email = document.getElementById("Email").value;
+            const errormessage = document.getElementById("errormessage")
+            if (username === "") {
+                errormessage.textContent = "Username feild is required";
+                errormessage.style.color = "red";
+            } else if (password === "") {
+                errormessage.textContent = "Password feild is required";
+                errormessage.style.color = "red";
+            } else if (email === "") {
+                errormessage.textContent = "Email feild is required";
+                errormessage.style.color = "red";
+            } else if (password.length < 6 || password.length > 10) {
+                errormessage.textContent = "Password must be between 6 and 10 characters";
+                errormessage.style.color = "red";
+            }
+            else {
+                errormessage.textContent = "Form submitted sucessfully";
+                errormessage.style.color = "green";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

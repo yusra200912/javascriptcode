@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transactions</title>
+    <style>
+        body {
+            background-image: url(https://cdn.clippingpath.in/wp-content/uploads/2023/07/14.-Blue-liquid-ink-texture-on-black-background.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 600px;
+            backdrop-filter: blur(6px);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(12, 12, 86);
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid rgb(10, 28, 56);
+            width: 350px;
+            border-radius: 10px;
+            padding: 20px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        input {
+            height: 25px;
+            width: 200px;
+            border-radius: 5px;
+            border: 2px solid aliceblue;
+        }
+
+        button {
+            background-color: aliceblue;
+            border: 2px solid aliceblue;
+            border-radius: 5px;
+            height: 30px;
+            width: 100px;
+            font-size: 15px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bank Transactions</h1>
+    <div class="container" id="setupContainer">
+        <h2>Enter Your Initial Bank Balance</h2>
+        <input type="number" id="initialBalance" placeholder="Enter initial balance">
+        <button onclick="setBalance()">Submit</button>
+    </div>
+    
+    <div class="container" id="transactionContainer" style="display: none;">
+        <h2>Current Balance: Rs <span id="currentBalance">0</span></h2>
+        <label>Enter amount:</label><br><br>
+        <input type="number" id="amount" placeholder="Enter amount"><br><br>
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+    </div>
+
+    <script>
+        let balance;
+
+        function setBalance() {
+            balance = parseFloat(document.getElementById("initialBalance").value);
+            if (isNaN(balance) || balance < 0) {
+                alert("Please enter a valid starting balance!");
+                return;
+            }
+            localStorage.setItem("balance", balance);
+            document.getElementById("setupContainer").style.display = "none";
+            document.getElementById("transactionContainer").style.display = "block";
+            document.getElementById("currentBalance").innerText = balance;
+        }
+
+        function deposit() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            if (amount > 0) {
+                balance += amount;
+                localStorage.setItem("balance", balance);
+                document.getElementById("currentBalance").innerText = balance;
+            } else {
+                alert("Enter a valid amount!");
+            }
+        }
+
+        function withdraw() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                localStorage.setItem("balance", balance);
+                document.getElementById("currentBalance").innerText = balance;
+            } else {
+                alert("Invalid amount or insufficient funds!");
+            }
+        }
+
+        window.onload = function () {
+            let storedBalance = localStorage.getItem("balance");
+            if (storedBalance !== null) {
+                balance = parseFloat(storedBalance);
+                document.getElementById("setupContainer").style.display = "none";
+                document.getElementById("transactionContainer").style.display = "block";
+                document.getElementById("currentBalance").innerText = balance;
+            }
+        };
+    </script>
+</body>
+
+</html>

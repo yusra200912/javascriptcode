@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //create an object
+        const book={
+            title: "Harry Potter",
+            author: "J.K Rowling",
+            price:"$20.99",
+        }
+        //access the values of objects
+        console.log("booktitle:" + book.title);
+        console.log("Author:" + book.author);
+        console.log("Price:" + book.price);
+
+        //modifing an aobject property
+        book.price= "$25.99";
+        console.log("Updated book price" + book.price)
+
+        //adding a property
+        book.publisher="Bloomsbury";
+        console.log("Book publisher:" + book.publisher)
+
+        //using an object in function
+        function printbookdetails(bookobj){
+            console.log( "Book Details:");
+            console.log("Title:"+ bookobj.title);
+            console.log("Author:" + bookobj.author);
+            console.log("Book price:" + bookobj.price);
+            console.log("Book publisher:" + bookobj.publisher);
+        }
+
+        //passinga book obj to a function
+        printbookdetails(book)
+
+        let today= new Date()
+        console.log(today)
+        
+        console.log(Math.sqrt(16))
+        console.log(Math.random())
+
+    this.collection.unshift(book4); 
+    console.log("After Unshift (Added '1984' to the start):", this.collection);
+
+    this.collection.push(book3); 
+    console.log("After Push (Added 'To Kill a Mockingbird' to the end):", this.collection);
+
+   
+    this.collection.pop(); 
+    console.log("After Pop (Removed last book):", this.collection);
+  }
+
+
+// Call the method to modify the collection
+book.modifyCollection();
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        const student = {
+            name: "yusra",
+            age: "15",
+            subject: "computer"
+        };
+
+        //convert object to json
+        const studentJSON = JSON.stringify(student);
+        console.log("JSON format:", studentJSON)
+
+        //convert JSON back to an object
+        const studentObject = JSON.parse(studentJSON);
+        console.log("Javascript Object:", studentObject)
+
+        function sum(a, b) {
+            console.log(a + b);
+        }
+
+        function calculator(a, b, callback) {
+            return callback(a, b);
+        }
+        calculator(2, 3, sum);
+
+        var p1 = new Promise((res, rej) => {
+            let a = true;
+            if (a) {
+                res("Data fetched")
+            }
+            else {
+                rej("error 403")
+            }
+        })
+        p1.then((data) => {
+            console.log("Data")
+        });
+        p1.catch((error) => {
+            console.log("error")
+        })
+
+        async function CallApi() {
+            let raw = await fetch(`https://randomuser.me/api`);
+            let ans = await raw.json()
+            console.log(ans)
+
+        }
+        CallApi()
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

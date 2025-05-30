@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Keyboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .keyboard {
+            display: grid;
+            grid-template-rows: repeat(5, 60px);
+            grid-gap: 8px;
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .key-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .key {
+            background: #444;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 14px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .key.small {
+            width: 70px;
+        }
+
+        .key.medium {
+            width: 60px;
+        }
+
+        .key.large {
+            width: 120px;
+        }
+
+        .key.space {
+            width: 640px;
+        }
+
+        .key-row.special {
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="keyboard">
+        <div class="key-row">
+            <div class="key small">Esc</div>
+            <div class="key small">F1</div>
+            <div class="key small">F2</div>
+            <div class="key small">F3</div>
+            <div class="key small">F4</div>
+            <div class="key small">F5</div>
+            <div class="key small">F6</div>
+            <div class="key small">F7</div>
+            <div class="key small">F8</div>
+            <div class="key small">F9</div>
+            <div class="key small">F10</div>
+            <div class="key small">F11</div>
+            <div class="key small">F12</div>
+        </div>
+
+        <div class="key-row">
+            <div class="key medium">~</div>
+            <div class="key medium">1</div>
+            <div class="key medium">2</div>
+            <div class="key medium">3</div>
+            <div class="key medium">4</div>
+            <div class="key medium">5</div>
+            <div class="key medium">6</div>
+            <div class="key medium">7</div>
+            <div class="key medium">8</div>
+            <div class="key medium">9</div>
+            <div class="key medium">0</div>
+            <div class="key medium">-</div>
+            <div class="key medium">=</div>
+            <div class="key large">Backspace</div>
+        </div>
+
+        <div class="key-row">
+            <div class="key large">Tab</div>
+            <div class="key medium">Q</div>
+            <div class="key medium">W</div>
+            <div class="key medium">E</div>
+            <div class="key medium">R</div>
+            <div class="key medium">T</div>
+            <div class="key medium">Y</div>
+            <div class="key medium">U</div>
+            <div class="key medium">I</div>
+            <div class="key medium">O</div>
+            <div class="key medium">P</div>
+            <div class="key medium">[</div>
+            <div class="key medium">]</div>
+            <div class="key medium">\</div>
+        </div>
+
+        <div class="key-row">
+            <div class="key large">Caps</div>
+            <div class="key medium">A</div>
+            <div class="key medium">S</div>
+            <div class="key medium">D</div>
+            <div class="key medium">F</div>
+            <div class="key medium">G</div>
+            <div class="key medium">H</div>
+            <div class="key medium">J</div>
+            <div class="key medium">K</div>
+            <div class="key medium">L</div>
+            <div class="key medium">;</div>
+            <div class="key medium">'</div>
+            <div class="key large">Enter</div>
+        </div>
+
+        <div class="key-row">
+            <div class="key large">Shift</div>
+            <div class="key medium">Z</div>
+            <div class="key medium">X</div>
+            <div class="key medium">C</div>
+            <div class="key medium">V</div>
+            <div class="key medium">B</div>
+            <div class="key medium">N</div>
+            <div class="key medium">M</div>
+            <div class="key medium">,</div>
+            <div class="key medium">.</div>
+            <div class="key medium">/</div>
+            <div class="key large">Shift</div>
+        </div>
+
+        <div class="key-row special">
+            <div class="key medium">Ctrl</div>
+            <div class="key medium">Fn</div>
+            <div class="key medium">Alt</div>
+            <div class="key space">Space</div>
+            <div class="key medium">Alt</div>
+            <div class="key medium">Ctrl</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            speak() {
+                console.log(`${this.name} says woof woof!`);
+            }
+        }
+
+        const dog = new Animal("Dog")
+        dog.speak();
+
+        class Cat extends Animal {
+            speak() {
+                console.log(`${this.name} says meow`);
+            }
+
+        }
+
+        const cat = new Cat("Cat")
+        cat.speak();
+
+
+        class Rabbit extends Animal {
+            speak() {
+                console.log(`${this.name} says squeaks`);
+            }
+
+        } 
+
+        const rabbit = new Rabbit("Rabbit")
+        rabbit.speak();
+
+
+         class Hamster extends Animal {
+            speak() {
+                console.log(`${this.name} says squeaks`);
+            }
+
+        } 
+
+        const hamster = new Hamster("Hamster")
+        hamster.speak();
+    </script>
+</body>
+
+</html>

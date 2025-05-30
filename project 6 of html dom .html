@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pastel Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333;
+        }
+
+        h1 {
+            color: #2d4d72; /* Dark blue */
+            margin-top: 20px;
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+
+        .container {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background-color: hsl(252, 45%, 98%); /* Light cream */
+            padding: 30px;
+            width: 50%;
+            margin: 30px auto;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2d4d72;
+        }
+
+        input {
+            margin: 5px 0 20px;
+            padding: 10px;
+            width: 95%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: #e0f7fa; /* Light cyan */
+        }
+
+        /* Style for the div containing all the buttons */
+        .buttons-container {
+            background-color: #fefdff; /* Soft pastel yellow */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            width: 48%; /* Buttons will take up 2 in a row */
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #b3e5fc; /* Soft Blue */
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .btn-add { background-color: #b3e5fc; } /* Soft Blue */
+        .btn-subtract { background-color: #e1f5fe; } /* Soft Light Blue */
+        .btn-multiply { background-color: #b2dfdb; } /* Soft Teal */
+        .btn-divide { background-color: #c8e6c9; } /* Soft Green */
+        .btn-cuberoot { background-color: #ffe0b2; } /* Soft Peach */
+        .btn-sqrt { background-color: #d1c4e9; } /* Soft Lavender */
+
+        .msg {
+            height: auto;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f7f7f7; /* Light gray */
+            color: #2d4d72;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 600px) {
+            button {
+                width: 80%; /* Buttons become larger on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+   <h1>Calculator</h1>
+   <div class="container">
+       <form onsubmit="event.preventDefault();">
+           <div>
+                <label>Enter the 1st number</label>
+                <input type="number" id="num1" required><br>
+
+                <label>Enter the 2nd number</label>
+                <input type="number" id="num2" required><br>
+           </div>
+           <div class="buttons-container">
+                <button type="button" class="btn-add" onclick="addNumbers()">Add</button>
+                <button type="button" class="btn-subtract" onclick="subtractNumbers()">Subtract</button>
+                <button type="button" class="btn-multiply" onclick="multiplyNumbers()">Multiply</button>
+                <button type="button" class="btn-divide" onclick="divideNumbers()">Divide</button>
+                <button type="button" class="btn-cuberoot" onclick="cubeRootNumbers()">Cube Root</button>
+                <button type="button" class="btn-sqrt" onclick="sqrtNumbers()">Square Root</button>
+        
+           </div>
+       </form>
+   </div>
+
+   <div class="msg">
+        <h2 id="msg">Results will appear here</h2>
+   </div>
+
+   <script>
+     function addNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value); 
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById("msg").innerHTML = "Please enter valid numbers.";
+        } else {
+            const sum = num1 + num2;
+            document.getElementById("msg").innerHTML = `The sum of ${num1} and ${num2} is: <strong>${sum}</strong>`;
+        }
+     }
+
+     function subtractNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value); 
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById("msg").innerHTML = "Please enter valid numbers.";
+        } else {
+            const difference = num1 - num2;
+            document.getElementById("msg").innerHTML = `The difference of ${num1} and ${num2} is: <strong>${difference}</strong>`;
+        }
+     }
+
+     function multiplyNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value); 
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById("msg").innerHTML = "Please enter valid numbers.";
+        } else {
+            const product = num1 * num2;
+            document.getElementById("msg").innerHTML = `The product of ${num1} and ${num2} is: <strong>${product}</strong>`;
+        }
+     }
+
+     function divideNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value); 
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById("msg").innerHTML = "Please enter valid numbers.";
+        } else if (num2 === 0) {
+            document.getElementById("msg").innerHTML = "Cannot divide by zero.";
+        } else {
+            const quotient = num1 / num2;
+            document.getElementById("msg").innerHTML = `The quotient of ${num1} and ${num2} is: <strong>${quotient}</strong>`;
+        }
+     }
+
+     function cubeRootNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+
+        if (isNaN(num1)) {
+            document.getElementById("msg").innerHTML = "Please enter a valid number.";
+        } else {
+            const cubeRoot = Math.cbrt(num1);
+            document.getElementById("msg").innerHTML = `The cube root of ${num1} is: <strong>${cubeRoot}</strong>`;
+        }
+     }
+
+     function sqrtNumbers() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+
+        if (isNaN(num1)) {
+            document.getElementById("msg").innerHTML = "Please enter a valid number.";
+        } else {
+            const sqrt = Math.sqrt(num1);
+            document.getElementById("msg").innerHTML = `The square root of ${num1} is: <strong>${sqrt}</strong>`;
+        }
+     }
+   </script>
+
+</body>
+</html>

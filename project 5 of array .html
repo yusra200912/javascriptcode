@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        const book1 = {
+            name: "Harry Potter",
+            books: [
+                "Harry Potter and the Philosopher's Stone",
+                "Harry Potter and the Chamber of Secrets",
+                "Harry Potter and the Prisoner of Azkaban",
+                "Harry Potter and the Goblet of Fire",
+                "Harry Potter and the Order of the Phoenix",
+                "Harry Potter and the Half-Blood Prince",
+                "Harry Potter and the Deathly Hallows"
+            ],
+            totalBooks: 7
+        }
+
+        const book2 = {
+            title: "The Lord of the Rings",
+            author: "J.R.R. Tolkien",
+            publisher: "George Allen & Unwin",
+            genres: ["Fantasy", "Adventure", "Epic"],
+            volumes: [
+                "The Fellowship of the Ring",
+                "The Two Towers",
+                "The Return of the King"
+            ],
+            mainCharacters: [
+                { name: "Frodo Baggins", role: "Ring Bearer" },
+                { name: "Samwise Gamgee", role: "Loyal Companion" },
+                { name: "Gandalf", role: "Wizard and Guide" },
+                { name: "Aragorn", role: "Ranger and Heir to the Throne" },
+                { name: "Legolas", role: "Elven Archer" },
+                { name: "Gimli", role: "Dwarven Warrior" }
+            ],
+        }
+
+        const book3 = {
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            publisher: "J.B. Lippincott & Co.",
+            publishedYear: 1960,
+            genres: ["Southern Gothic", "Legal Story", "Coming-of-Age"],
+            mainCharacters: [
+                {
+                    name: "Scout Finch",
+                    role: "Narrator and Protagonist"
+                },
+                {
+                    name: "Atticus Finch",
+                    role: "Scout's father, a lawyer"
+                },
+                {
+                    name: "Jem Finch",
+                    role: "Scout's older brother"
+                },
+                {
+                    name: "Tom Robinson",
+                    role: "A black man falsely accused of a crime"
+                },
+                {
+                    name: "Boo Radley",
+                    role: "A reclusive neighbor with a mysterious reputation"
+                }
+            ],
+            themes: [
+                "Racial Injustice",
+                "Moral Growth",
+                "Empathy and Understanding",
+                "Courage",
+                "The Loss of Innocence"
+            ],
+        }
+
+        const book4 = {
+            title: "1984",
+            author: "George Orwell",
+            publisher: "Secker & Warburg",
+            publishedYear: 1949,
+            genres: ["Dystopian", "Political Fiction", "Science Fiction"],
+            setting: {
+                place: "Oceania",
+                politicalSystem: "Totalitarianism",
+                keyLocations: ["Airstrip One (formerly Britain)", "The Ministry of Truth", "The Ministry of Love"]
+            },
+            mainCharacters: [
+                { name: "Winston Smith", role: "Protagonist, works at the Ministry of Truth" },
+                { name: "Julia", role: "Winston's lover and ally" },
+                { name: "O'Brien", role: "Antagonist, a high-ranking member of the Party" },
+                { name: "Big Brother", role: "Symbolic leader of the Party" }
+            ],
+            themes: [
+                "Totalitarianism",
+                "Surveillance",
+                "Freedom vs. Oppression",
+                "Propaganda",
+                "The Nature of Truth"
+            ],
+        }
+
+        // Define a book object with a collection of books
+        const bookCollection = {
+            collection: [book1, book2, book3, book4],
+
+            // Method to modify the collection
+            modifyCollection: function () {
+                // Shift - Removes the first book from the collection
+                this.collection.shift();
+                console.log("book1", this.collection);
+
+                // Unshift - Adds book4 to the beginning of the collection
+                this.collection.unshift(book4);
+                console.log("book2", this.collection);
+
+                // Push - Adds book3 to the end of the collection
+                this.collection.push(book3);
+                console.log("book3", this.collection);
+
+                // Pop - Removes the last book from the collection
+                this.collection.pop();
+                console.log("book4", this.collection);
+            }
+        };
+
+        // Call the method to modify the collection
+        bookCollection.modifyCollection();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

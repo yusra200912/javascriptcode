@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const num1 = Math.floor(Math.random() * 10);
+        const num2 = Math.floor(Math.random() * 10);
+        const num3 = Math.floor(Math.random() * 10);
+        const num4 = Math.floor(Math.random() * 10);
+
+        const otp = [num1 , num2 , num3 , num4]
+        otp.forEach( num =>{
+            console.log(num)
+        });
+
+
+        const fruits = ["apple","banana" ,"cherry" ];
+        console.log(fruits)
+
+        fruits.push("pineapple")
+        console.log(fruits)
+
+        fruits.pop()
+        console.log(fruits)
+
+        fruits.shift()
+        console.log(fruits)
+
+        fruits.unshift("pineapple")
+        console.log(fruits)
+
+
+        function first(){
+            console.log("First function")
+        }
+
+        function Second(){
+            first()
+            console.log("Second function")
+        }
+
+        function Third(){
+            Second()
+            console.log("Third function")
+        }
+
+        Third()
+
+
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

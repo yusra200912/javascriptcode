@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+         try{
+            let json = '{"name" : "yusra"}';
+            let user = JSON.parse(json);
+            console.log(user.name);
+
+            let invalidJson = "{name : 'yusra'}";
+            JSON.parse(invalidJson);
+
+        } catch(error){
+
+            console.log("an error occooured:" , error.message)
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

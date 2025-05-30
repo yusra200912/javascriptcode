@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function name() {
+            console.log("name function")
+        }
+        name()
+
+        //arrow function
+        setTimeout(() => {
+            console.log("function")
+        }, 5000);
+
+        setTimeout(function() {
+            console.log (" normal  function")
+        }, 5000);
+
+
+        var a  = "12"
+        var changedA = Number(a)
+        console.log(changedA + 23)// output 33
+
+        let strings = "123";
+        let num = Number(strings);
+        console.log(num + 10); // output 133
+
+        //number to string 
+        let number = 50;
+        let string = String(number);
+        console.log(string + "is a string");
+
+        //boolean to number 
+        let bool = true ; 
+        console.log(Number(bool));
+
+        let str = " hello123";
+        let regex = /\d/ ;
+        console.log(regex.test(str));
+
+        try{
+            let json = '{"name" : "yusra"}';
+            let user = JSON.parse(json);
+            console.log(user.name);
+
+            let invalidJson = "{name : 'yusra'}";
+            JSON.parse(invalidJson);
+
+        } catch(error){
+
+            console.log("an error occooured:" , error.message)
+        };
+        
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

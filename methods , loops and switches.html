@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const student = {
+            name: "john",
+            greet: function () {
+                console.log(`Hello , My name is ${this.name}!`)
+            }
+
+        }
+        student.greet()
+
+        const randomInt = Math.floor(Math.random() * 10) + 1;
+        console.log(`random integer between 1 and 10 ${randomInt}`)
+
+        for (i = 1; i <= 6; i++) {
+            console.log(`This is loop interation number:${i}`)
+        }
+
+        count = 1
+        while (count <= 3) {
+            (`This is loop interation number :${count}`); count++;
+        }
+
+        //example of switch
+        let day = "Monday"
+        switch (day) {
+            case "Monday":
+                console.log("Start of the week")
+                break;
+            case "Tuesday":
+                console.log("Middle of the week")
+                break;
+            case "Friday":
+                console.log("Weekend is near!")
+                            break;
+            case "Saturday":
+                console.log("its weekend finally")
+                break;
+            case "default":
+                console.log("Its a regular day")
+                        
+        }
+
+
+        let str="yusra1234"
+        let regex=/\d/; // /\d/ means any digit , /\w/ means any words, /\s/ means any space 
+        console.log(regex.test(str));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

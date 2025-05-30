@@ -1,0 +1,321 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #container{
+            height: 100%;
+            width: 100%;
+            background-color: rgb(239, 239, 239);
+            align-items: center;
+            display: flex;
+            padding:30px;
+            background-image: url(https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg?semt=ais_hybrid);
+            background-size: cover;
+        }
+        #calculator{
+            height:410px;
+            width: 330px;
+            position: relative;
+            background-color: white;
+            border-radius: 30px;
+            
+        }
+        #keyboard{
+            height: 410px;
+            float: left;
+            background-color: white;
+            border-radius: 30px;
+            
+        }
+        .operator , .number , .empty{
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            font-size: 15px;
+            margin: 10px;
+
+        }
+        button{
+            background-color: white;
+        }
+        .operator:active, .number:active{
+            font-size: 10px;
+        }
+        .number,.empty{
+            background-color: white;
+        }
+        .number,.operator{
+            cursor: pointer;
+        }
+        #result{
+            height: 120px;
+        }
+        #history{
+            text-align: right;
+            height: 20px;
+            margin: 0 20px;
+            padding-top: 20px;
+            font-size: 15px;
+            color: #919191;
+        }
+        #output{
+            text-align: right;
+            height: 60px;
+            margin: 10px 20px;
+            font-size: 30px;
+        }
+        button:nth-child(4){
+            background-color: aquamarine;
+        }
+        button:nth-child(8){
+            background-color: rgb(201, 182, 230);
+        }
+        button:nth-child(12){
+            background-color: rgb(196, 216, 239);
+        }
+        button:nth-child(16){
+            background-color: rgb(244, 196, 192);
+        }
+        button:nth-child(20){
+            background-color: rgb(244, 209, 239);
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Calculator</h1></center>
+
+    <div id="container">
+    
+    <div id="calculator">
+    
+    <div id="result">
+    
+    <div id="history">
+    
+    <p id="history-value"></p>
+    
+    </div>
+    
+    <div id="output">
+    
+    <p id="output-value"></p>
+    
+    </div>
+    
+    </div>
+    
+    <div id="keyboard">
+    
+    <button class="operator" id="clear">C</button>
+    
+    <button class="operator" id="backspace">CE</button>
+    
+    <button class="operator" id="%">%</button>
+    
+    <button class="operator" id="/">&#247;</button>
+    
+    <button class="number" id="7">7</button>
+    
+    <button class="number" id="8">8</button>
+    
+    <button class="number" id="9">9</button>
+    
+    <button class="operator" id="*">&times;</button>
+    
+    <button class="number" id="4">4</button>
+    
+    <button class="number" id="5">5</button>
+    
+    <button class="number" id="6">6</button>
+    
+    <button class="operator" id="-">-</button>
+    
+    <button class="number" id="1">1</button>
+    
+    <button class="number" id="2">2</button>
+    
+    <button class="number" id="3">3</button>
+    
+    <button class="operator" id="+">+</button>
+    
+    <button class="empty" id="empty"></button>
+    
+    <button class="number" id="0">0</button>
+    
+    <button class="empty" id="empty"></button>
+    
+    <button class="operator" id="=">=</button>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    <script>
+       function getHistory(){
+
+return document.getElementById("history-value").innerText;
+
+}
+
+function printHistory(num){
+
+document.getElementById("history-value").innerText=num;
+
+}
+
+function getOutput(){
+
+return document.getElementById("output-value").innerText;
+
+}
+
+function printOutput(num){
+
+if(num==""){
+
+document.getElementById("output-value").innerText=num;
+
+}
+
+else{
+
+document.getElementById("output-value").innerText=getFormattedNumber(num);
+
+}
+
+}
+
+function getFormattedNumber(num){
+
+if(num==""){
+
+return "";
+
+}
+
+var n = Number(num);
+
+var value = n.toLocaleString("en");
+
+return value;
+
+}
+
+function reverseNumberFormat(num){
+
+return Number(num.replace(/,/g,''));
+
+}
+
+var operator = document.getElementsByClassName("operator");
+
+for(var i =0;i<operator.length;i++){
+
+operator[i].addEventListener('click',function(){
+
+if(this.id=="clear"){
+
+printHistory("");
+
+printOutput("");
+
+}
+
+else if(this.id=="backspace"){
+
+var output=reverseNumberFormat(getOutput()).toString();
+
+if(output){//if output has a value
+
+output= output.substr(0,output.length-1);
+
+printOutput(output);
+
+}
+
+}
+
+else{
+
+var output=getOutput();
+
+var history=getHistory();
+
+if(output=="" && history!=""){
+
+if(isNaN(history[history.length-1])){
+
+history= history.substr(0,history.length-1);
+
+}
+
+}
+
+if(output!="" || history!=""){
+
+// condition ? ture : false
+
+output= output==""?output:reverseNumberFormat(output);
+
+history=history+output;
+
+if(this.id=="="){
+
+var result=eval(history);
+
+printOutput(result);
+
+printHistory("");
+
+}
+
+else{
+
+history=history+this.id;
+
+printHistory(history);
+
+printOutput("");
+
+}
+
+}
+
+}
+
+
+});
+
+}
+
+var number = document.getElementsByClassName("number");
+
+for(var i =0;i<number.length;i++){
+
+number[i].addEventListener('click',function(){
+
+var output=reverseNumberFormat(getOutput());
+
+if(output!=NaN){ //if output is a number
+
+output=output+this.id;
+
+printOutput(output);
+
+}
+
+});
+
+}
+    </script>
+</body>
+</html>

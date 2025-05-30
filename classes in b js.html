@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <script>
+    class Animal{
+      constructor (name)  {
+        this.name = name;
+      }
+      speak(){
+          console.log(`${this.name} makes a sound`);
+      }
+    }
+
+    const dog = new Animal("Dog")
+    dog.speak();
+
+    class Cat extends Animal{
+        speak(){
+            console.log(`${this.name} says meow`);
+        }
+
+    }
+
+    const cat= new Cat("Cat")
+    cat.speak();
+
+
+
+    class MathUtil{
+        static add (a,b){
+            return a+b;
+        }
+    }
+    console.log(MathUtil.add(5,10));
+    </script>
+</body>
+</html>
