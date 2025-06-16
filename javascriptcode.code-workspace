@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "javascriptcode",
+			"path": "../../javascriptcode"
+		}
+	],
+	"settings": {}
+}
