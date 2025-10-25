@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spell book</title>
+  <style>
+    body {
+      background-image: url("https://i.pinimg.com/736x/85/89/e7/8589e78ba262b13e0b1b8fde94654750.jpg");
+      background-size: 1250px;
+      
+      border-radius: 20px;
+      height: 1300px;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #result {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      text-shadow: 0 0 10px #793636, 0 0 20px #913b3b;
+    }
+
+    select,
+    input,
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+      background: linear-gradient(#8c4040, #4e2626);
+      color: white;
+      border: none;
+      box-shadow: 0 0 10px #7e4343;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #category {
+      box-shadow: #793636;
+      color: #8c4040;
+    }
+
+    label {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 30px;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgb(171, 119, 119);
+      border-radius: 50%;
+      animation: sparkle 1s ease-out forwards;
+    }
+
+    @keyframes sparkle {
+      to {
+        transform: translateY(-50px) scale(0);
+        opacity: 0;
+      }
+    }
+
+    #head {
+      margin-top: 30px;
+      font-size: 50px;
+      color: #6f4242
+    }
+
+    h2 {
+      font-size: 40px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="font-size: 50px;">Mystica: The Spell Scribe</h2>
+  <h4 style="font-size: 30px;">Every spell begins with a whisper… yours is waiting</h4>
+  <br><br><br><br><br><br><br>
+  <div class="spell">
+    <h1 id="head">📖 Mystic Grimoire</h1>
+    <label for="category">Choose your spell type:</label>
+    <select id="category">
+      <option value="elemental">Elemental</option>
+      <option value="shadow">Shadow</option>
+      <option value="healing">Healing</option>
+      <option value="protection">Protection</option>
+      <option value="illusion">Illusion</option>
+      <option value="celestial">Celestial</option>
+      <option value="chaos">Chaos</option>
+    </select><br><br><br>
+    <input type="text" id="username" placeholder="Your name....">
+    <button onclick="generateSpell()">Reveal My Spell</button>
+    <div id="result"></div>
+  </div>
+  <audio id="chime"
+    src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6e0fbaf690.mp3?filename=magic-chime-01-109275.mp3"></audio>
+  <div class="magic-facts">
+    <h2>✨ Did You Know?</h2>
+    
+      <p>🌕 Lunar spells are strongest during full moons.</p>
+     
+      <p>🔍 Illusions can be broken by true belief.</p>
+      <p>🧊 Elemental mages can sense temperature shifts.</p>
+      <p>📜 Ancient scrolls hum when near real magic.</p>
+      <p>🌀 Time spells are banned in most wizarding circles.</p>
+      <p>🌟 Celestial spells are said to connect directly to the stars.</p>
+      <p>🕯️ Candle flames can reveal hidden spirits if enchanted.</p>
+      <p>👁️ Truth potions glow faintly when lies are spoken.</p>
+      <p>🍃 Druids believe every plant has a magical frequency.</p>
+      
+      
+    
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const spells = {
+        elemental: [
+          { name: "Flamewhirl", description: "Summons a fiery cyclone that dances at your will." },
+          { name: "Tidecall", description: "Waves crash where you point, washing away danger." },
+          { name: "Stoneheart", description: "Turns your skin to stone for protection." },
+          { name: "Stormshard", description: "Calls a bolt of lightning from clear skies." }
+        ],
+        shadow: [
+          { name: "Veil of Dusk", description: "Wraps you in shadow, hiding you from all eyes." },
+          { name: "Night's Embrace", description: "Enemies are chilled and slowed by dark tendrils." },
+          { name: "Phantom Step", description: "Walk through walls like mist." },
+          { name: "Whisper Hex", description: "Sows confusion with voices only the target hears." }
+        ],
+        healing: [
+          { name: "Elixir of Renewal", description: "Wounds close as if never there." },
+          { name: "Lunar Mending", description: "Heals with the soft glow of moonlight." },
+          { name: "Serenity Pulse", description: "Eases pain in all who hear your voice." },
+          { name: "Bloomheart", description: "Creates herbs and flowers with healing magic." }
+        ],
+        protection: [
+          { name: "Glittering Shield", description: "Blocks all minor hexes and curses." },
+          { name: "Guardian's Orb", description: "A floating crystal blocks incoming spells." },
+          { name: "Warding Flame", description: "Burns anyone who tries to harm you." },
+          { name: "Mirror Guard", description: "Reflects magic back to the caster." }
+        ],
+        illusion: [
+          { name: "Mirror Mirage", description: "Creates mirror copies of yourself to confuse foes." },
+          { name: "Glamour Veil", description: "Appear as anyone you choose." },
+          { name: "Shifting World", description: "Distorts surroundings to hide passageways." },
+          { name: "Spectral Stage", description: "Summon visual phantoms for entertainment or escape." }
+        ],
+        celestial: [
+          { name: "Starfall Blessing", description: "Summons starlight to inspire and protect." },
+          { name: "Moonbeam Ward", description: "Glows with radiant protection." },
+          { name: "Solar Flare", description: "Blinds enemies with a flash of holy brilliance." },
+          { name: "Astral Echo", description: "Whispers of the cosmos grant foresight." }
+        ],
+        chaos: [
+          { name: "Wild Nova", description: "Creates unpredictable magical explosions." },
+          { name: "Jinx Spiral", description: "Causes reality to wobble oddly around your foes." },
+          { name: "Hexbounce", description: "A random spell rebounds chaotically." },
+          { name: "Mayhem Pulse", description: "Unleashes unpredictable magical phenomena." }
+        ]
+      };
+
+      window.generateSpell = function () {
+        const name = document.getElementById('username').value.trim();
+        const category = document.getElementById('category').value;
+        const output = document.getElementById('result');
+        const chime = document.getElementById('chime');
+
+        if (!name) {
+          output.innerHTML = "✨ Please enter your magical name ✨";
+          return;
+        }
+
+        const spellList = spells[category];
+        const randomSpell = spellList[Math.floor(Math.random() * spellList.length)];
+
+        output.innerHTML = `<strong>${name}'s ${randomSpell.name}</strong><br>${randomSpell.description}`;
+        chime.play();
+
+        // Sparkle effect
+        for (let i = 0; i < 20; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * window.innerWidth + 'px';
+          sparkle.style.top = Math.random() * window.innerHeight + 'px';
+          document.body.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 1000);
+        }
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
