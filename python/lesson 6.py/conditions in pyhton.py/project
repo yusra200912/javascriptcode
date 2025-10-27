@@ -1,0 +1,7 @@
+number = int(input("Enter a number"))
+print("Number to be checked :", number)
+
+if number>0 and number.is_integer:
+    print("Number is natural")
+else:
+    print("Number is not Natural")
