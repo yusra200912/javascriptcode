@@ -1,0 +1,187 @@
+import sys
+
+def initial_slambook():
+    rows, cols = int(input("Enter initial number of entries in your SLAM BOOK: ")), 8
+    slam = []
+
+    for i in range(rows):
+        print(f"\nEnter details for friend {i+1}:")
+        print("NOTE: * indicates mandatory field")
+        print("----------------------------------------------------")
+        temp = []
+
+        # Column fields
+        fields = [
+            "Name*",
+            "Nickname",
+            "Birthday (DD/MM/YYYY)",
+            "Favourite Food",
+            "Favourite Color",
+            "Favourite Hobby",
+            "Best Memory With You",
+            "A Message for You"
+        ]
+
+        for j in range(cols):
+            value = input(f"Enter {fields[j]}: ")
+
+            if j == 0:   # Name mandatory
+                if value.strip() == "":
+                    sys.exit("Name is mandatory! Exiting due to blank field...")
+                temp.append(value)
+            else:
+                if value.strip() == "":
+                    value = None
+                temp.append(value)
+
+        slam.append(temp)
+
+    print("\nInitial Slam Book:")
+    print(slam)
+    return slam
+
+
+def menu():
+    print("\n" + "*"*15)
+    print("          SLAM BOOK MENU")
+    print("*"*15)
+    print("1. Add new entry")
+    print("2. Remove an entry")
+    print("3. Delete ALL entries")
+    print("4. Search entry")
+    print("5. Display all entries")
+    print("6. Exit")
+    choice = int(input("Enter your choice: "))
+    return choice
+
+
+def add_entry(slam):
+    print("\nADD NEW ENTRY")
+    fields = [
+        "Name*",
+        "Nickname",
+        "Birthday (DD/MM/YYYY)",
+        "Favourite Food",
+        "Favourite Color",
+        "Favourite Hobby",
+        "Best Memory With You",
+        "A Message for You"
+    ]
+    temp = []
+
+    for i in range(len(fields)):
+        value = input(f"Enter {fields[i]}: ")
+        if i == 0:
+            if value.strip() == "":
+                print("Name is mandatory. Entry not added.")
+                return slam
+            temp.append(value)
+        else:
+            if value.strip() == "":
+                value = None
+            temp.append(value)
+
+    slam.append(temp)
+    print("Entry added successfully!")
+    return slam
+
+
+def remove_entry(slam):
+    query = input("Enter the NAME of the person to remove: ")
+    for i in range(len(slam)):
+        if slam[i][0].lower() == query.lower():
+            print("Removed:", slam.pop(i))
+            return slam
+
+    print("Entry not found.")
+    return slam
+
+
+def delete_all(slam):
+    confirm = input("Are you sure you want to delete ALL entries? (yes/no): ")
+    if confirm.lower() == "yes":
+        slam.clear()
+        print("All entries deleted!")
+    else:
+        print("Operation cancelled.")
+    return slam
+
+
+def search_entry(slam):
+    print("\nSearch by:")
+    print("1. Name")
+    print("2. Hobby")
+    print("3. Favourite Color")
+    print("4. Favourite Food")
+
+    choice = int(input("Enter choice: "))
+    key = ""
+    index = -1
+
+    if choice == 1:
+        key = input("Enter Name: ")
+        index = 0
+    elif choice == 2:
+        key = input("Enter Favourite Hobby: ")
+        index = 5
+    elif choice == 3:
+        key = input("Enter Favourite Color: ")
+        index = 4
+    elif choice == 4:
+        key = input("Enter Favourite Food: ")
+        index = 3
+    else:
+        print("Invalid choice.")
+        return
+
+    print("\nSearch Results:")
+    found = False
+    for entry in slam:
+        if entry[index] and entry[index].lower() == key.lower():
+            print(entry)
+            found = True
+
+    if not found:
+        print("No matching entry found.")
+
+
+def display_all(slam):
+    if not slam:
+        print("Slam book is empty.")
+        return
+    print("\nAll Slam Book Entries:")
+    for entry in slam:
+        print(entry)
+
+
+def thanks():
+    print("\n" + "*"*10)
+    print("Thank you for using the Slam Book!")
+    print("Goodbye!")
+    print("*"*10)
+    sys.exit()
+
+
+# MAIN PROGRAM
+print("."*10)
+print("WELCOME TO YOUR DIGITAL SLAM BOOK!")
+print("."*10)
+
+slam = initial_slambook()
+choice = 1
+
+while choice in (1, 2, 3, 4, 5):
+    choice = menu()
+
+    if choice == 1:
+        slam = add_entry(slam)
+    elif choice == 2:
+        slam = remove_entry(slam)
+    elif choice == 3:
+        slam = delete_all(slam)
+    elif choice == 4:
+        search_entry(slam)
+    elif choice == 5:
+        display_all(slam)
+    else:
+        thanks()
